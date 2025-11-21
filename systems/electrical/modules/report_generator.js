@@ -1,7 +1,11 @@
-﻿// modules/report_generator.js
+// systems/electrical/modules/report_generator.js
 // หน้าที่: รับผลการคำนวณ (costs) แล้วสร้าง HTML Table สำหรับแสดงผลหรือพิมพ์
 
-import { formatCurrency, createSummaryTable } from './ui_renderer.js';
+// 1. Import formatCurrency จาก Central Utils โดยตรง (แก้ Path ให้ถูก)
+import { formatCurrency } from '../../../js/utils.js';
+
+// 2. Import createSummaryTable จาก UI Renderer ในโฟลเดอร์เดียวกัน
+import { createSummaryTable } from './ui_renderer.js';
 
 export function generateReport(costs, type) {
     const reportGenerators = {
@@ -11,7 +15,6 @@ export function generateReport(costs, type) {
         'purchase-order': generatePurchaseOrder
     };
     
-    // ถ้าไม่เจอ type ที่ระบุ ให้ใช้ boq-combined เป็นค่าเริ่มต้น
     const generator = reportGenerators[type] || generateCombinedBoq;
     return generator(costs);
 }
