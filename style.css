@@ -1,0 +1,72 @@
+﻿/* style.css - Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #3b82f6;
+    --primary-emerald: #10b981;
+    --bg-dark: #0f172a;
+    --text-light: #f1f5f9;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Panel Utility */
+.glass-panel {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Hover Glow Effect */
+.hover-glow:hover {
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Animation Utilities */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Print Styles (Global) */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #output-section, #output-section * {
+        visibility: visible;
+    }
+    #output-section {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: white;
+        color: black;
+        padding: 0;
+        margin: 0;
+    }
+    .no-print {
+        display: none !important;
+    }
+    /* ซ่อนพื้นหลังสีเข้มตอนพิมพ์ */
+    body {
+        background: white !important;
+    }
+}
