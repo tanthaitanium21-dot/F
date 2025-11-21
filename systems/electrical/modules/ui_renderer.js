@@ -1,7 +1,7 @@
 // systems/electrical/modules/ui_renderer.js
-// UI Helpers: Rendering Dynamic Inputs & Tables (Fixed: Added createSummaryTable)
+// UI Helpers: Rendering Dynamic Inputs & Tables
 
-// 1. Import Utilities (Format เงิน) จาก Central
+// 1. Import จาก Central
 import { formatCurrency } from '../../../js/utils.js';
 
 export function renderCircuitInputs(prefix, count, container) {
@@ -155,7 +155,7 @@ export function renderDedicatedCircuitInputs(prefix, count, container) {
     container.innerHTML = html;
 }
 
-// [ADDED BACK] ฟังก์ชันนี้หายไป ทำให้เกิด Error
+// ฟังก์ชันสร้างตารางสรุป (ที่เคยหายไป กลับมาแล้ว!)
 export function createSummaryTable(summaryItems) {
     if (!summaryItems || summaryItems.length === 0) return '';
     
